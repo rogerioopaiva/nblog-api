@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: nposts-dev
+      hosts:
+        - localhost:27017
