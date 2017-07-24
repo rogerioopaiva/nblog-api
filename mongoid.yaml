@@ -11,7 +11,7 @@ qa:
             hosts:
                 - 'ds151909.mlab.com:51909'
             options:
-                user: hnblog-api-qa
+                user: nblog-api-qa
                 password: secret
 production:
     clients:
