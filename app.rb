@@ -7,5 +7,6 @@ require_relative 'endpoints/posts'
 
 # Rota padrão
 get '/' do
-  'Welcome to Ninja Books API'
+  @env = ENV['RACK_ENV'].to_s.capitalize
+  "Welcome to nBlog API. Environment: #{@env}."
 end

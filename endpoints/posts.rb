@@ -1,7 +1,7 @@
 # posts.rb
 require_relative '../helpers'
 
-namespace '/api/prod' do
+namespace '/api' do
   before do
     content_type 'application/json'
     headers 'Access-Control-Allow-Origin' => '*'
