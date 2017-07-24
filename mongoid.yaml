@@ -1,0 +1,24 @@
+development:
+  clients:
+    default:
+      database: nblog-api-dev
+      hosts:
+        - localhost:27017
+qa:
+    clients:
+        default:
+            database: nblog-api-qa
+            hosts:
+                - 'ds151909.mlab.com:51909'
+            options:
+                user: hnblog-api-qa
+                password: secret
+production:
+    clients:
+        default:
+            database: nblog-api-production
+            hosts:
+                - 'ds121483.mlab.com:21483'
+            options:
+                user: nblog-api-production
+                password: secret
