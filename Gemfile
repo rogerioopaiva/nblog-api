@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-cross_origin', '~> 0.3.1'
 gem 'mongoid'
+gem 'faker'
 
 group :test, :development do
   gem 'faker'
