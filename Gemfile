@@ -4,5 +4,10 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-cross_origin', '~> 0.3.1'
-gem 'jwt'
 gem 'mongoid'
+
+group :development do
+  gem 'airborne'
+  gem 'rspec'
+  gem 'rspec_junit_formatter'
+end

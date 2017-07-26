@@ -1,13 +1,13 @@
 development:
   clients:
     default:
-      database: nblog-api-dev
+      database: nblog-dev
       hosts:
         - localhost:27017
 qa:
     clients:
         default:
-            database: nblog-api-qa
+            database: nblog-qa
             hosts:
                 - 'ds151909.mlab.com:51909'
             options:
@@ -16,7 +16,7 @@ qa:
 production:
     clients:
         default:
-            database: nblog-api-production
+            database: nblog-production
             hosts:
                 - 'ds121483.mlab.com:21483'
             options:

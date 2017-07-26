@@ -40,9 +40,8 @@ namespace '/api' do
     post = Post.new(json_params)
     t = Time.now
     post[:created_date] = t.strftime('%m/%d/%Y')
-    puts post.to_json
     halt 422, seri_post(post) unless post.save
-    response.headers['Location'] = "#{base_url}/api/v1/posts/#{post.id}"
+    response.headers['_id'] = post.id.to_s
     status 200
   end
 
@@ -53,6 +52,7 @@ namespace '/api' do
   end
 
   delete '/posts/:id' do
+    halt_if_post_not_found!
     get_post.destroy if get_post
     status 200
   end
