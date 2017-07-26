@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="9" skipped="0" failures="0" errors="0" time="0.442088" timestamp="2017-07-25T18:46:45-03:00" hostname="MacBook-Pro-de-Fernando.local">
+<testsuite name="rspec" tests="9" skipped="0" failures="0" errors="0" time="0.485977" timestamp="2017-07-26T15:21:24-03:00" hostname="MacBook-Pro-de-Fernando.local">
 <properties>
-<property name="seed" value="26848"/>
+<property name="seed" value="1590"/>
 </properties>
-<testcase classname="spec.posts_spec" name="nBlog Api POST /posts status 200 creates a new post" file="./spec/posts_spec.rb" time="0.386363"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api POST /posts GET /posts/:id status 200 post should be created" file="./spec/posts_spec.rb" time="0.009371"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api PUT /posts status 200 creates a new post" file="./spec/posts_spec.rb" time="0.006507"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api PUT /posts GET /posts/:id status 200 post should be updated" file="./spec/posts_spec.rb" time="0.002287"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api GET /posts status 200 returns a list of posts" file="./spec/posts_spec.rb" time="0.002357"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api GET /posts/:id status 404 message error when post not exist" file="./spec/posts_spec.rb" time="0.001973"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api GET /posts/:id status 200 returns one post" file="./spec/posts_spec.rb" time="0.003069"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api DELETE /posts/:id status 200 removes a post" file="./spec/posts_spec.rb" time="0.007433"></testcase>
-<testcase classname="spec.posts_spec" name="nBlog Api DELETE /posts/:id status 404 message error when post not exist" file="./spec/posts_spec.rb" time="0.002003"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api POST /posts status 200 creates a new post" file="./spec/posts_spec.rb" time="0.423893"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api POST /posts GET /posts/:id status 200 post should be created" file="./spec/posts_spec.rb" time="0.009596"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api PUT /posts status 200 creates a new post" file="./spec/posts_spec.rb" time="0.006753"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api PUT /posts GET /posts/:id status 200 post should be updated" file="./spec/posts_spec.rb" time="0.002140"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api GET /posts status 200 returns a list of posts" file="./spec/posts_spec.rb" time="0.002503"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api GET /posts/:id status 404 message error when post not exist" file="./spec/posts_spec.rb" time="0.002251"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api GET /posts/:id status 200 returns one post" file="./spec/posts_spec.rb" time="0.002991"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api DELETE /posts/:id status 200 removes a post" file="./spec/posts_spec.rb" time="0.006004"></testcase>
+<testcase classname="spec.posts_spec" name="nBlog Api DELETE /posts/:id status 404 message error when post not exist" file="./spec/posts_spec.rb" time="0.001921"></testcase>
 </testsuite>
