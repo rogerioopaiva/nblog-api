@@ -8,5 +8,5 @@ require_relative 'endpoints/posts'
 # Rota padrão
 get '/' do
   @env = ENV['RACK_ENV'].to_s.upcase
-  "Welcome to nBlog API v1.0 | Environment: #{@env}."
+  "Welcome to nBlog API v1.1 | Environment: #{@env}."
 end
