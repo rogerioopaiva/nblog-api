@@ -16,7 +16,7 @@ node {
 }
 
 
-def install_ruby(stage_name) {
+def bootstrap_ruby(stage_name) {
     echo "Bootstrapping ruby for ${stage_name}"
     unstash 'source'
     sh '''current_ruby_version=`cat .ruby-version`
