@@ -87,7 +87,7 @@ describe 'nBlog Api' do
   describe 'DELETE /posts/:id' do
     describe 'status 200' do
       before do
-        req = { title: 'ITEM to DELETE', body: Faker::Lorem.paragraph }
+        req = { title: 'ITEM to DELETE', image: 'https://robohash.org/sitsequiquia.png?size=1280x960', body: Faker::Lorem.paragraph }
         post 'api/posts', req.to_json
         $post = Post.where(title: req[:title]).first
       end
