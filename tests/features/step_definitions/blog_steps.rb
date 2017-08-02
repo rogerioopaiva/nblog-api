@@ -57,3 +57,9 @@ Então(/^o JSON response deve conter uma lista de artigos publicados$/) do
   expect_json_types('*', title: :string, body: :string)
   expect(json_body).not_to be_empty
 end
+
+# Delete
+
+Quando(/^o módulo admin envia um DELETE para o serviço posts$/) do
+  delete '/api/posts/' + @post_id.to_s
+end
