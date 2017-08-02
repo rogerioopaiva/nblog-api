@@ -5,9 +5,32 @@ node {
       git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
    }
    stage('Build') {
-      sh 'rbenv.sh; bundle install --without development:test; rspec --format progress --format RspecJunitFormatter --out rspec.xml'
+      env.RACK_ENV = 'dev'
+      bootstrap_ruby('Dev')
+      bundle()
+      unit_tests()
    }
    stage('Results') {
       junit 'rspec.xml'
    }
+}
+
+
+def install_ruby(stage_name) {
+    echo "Bootstrapping ruby for ${stage_name}"
+    unstash 'source'
+    sh '''current_ruby_version=`cat .ruby-version`
+    rbenv install --skip-existing $current_ruby_version &&
+	rbenv local $current_ruby_version &&
+	gem install bundler'''
+}
+
+def bundle() {
+    unstash 'gem_package'
+    sh 'bundle install --local'
+}
+
+def unit_tests() {
+    unstash 'gem_package'
+    sh 'rspec --format progress --format RspecJunitFormatter --out rspec.xml'
 }
