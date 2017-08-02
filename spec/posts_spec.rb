@@ -7,7 +7,7 @@ describe 'nBlog Api' do
   describe 'POST /posts' do
     describe 'status 200' do
       before do
-        $req = { title: 'POST new Item', body: Faker::Lorem.paragraph }
+        $req = { title: 'POST new Item', image: 'https://robohash.org/sitsequiquia.png?size=1280x960', body: Faker::Lorem.paragraph }
       end
       it 'creates a new post' do
         post 'api/posts', $req.to_json
@@ -29,7 +29,7 @@ describe 'nBlog Api' do
   describe 'PUT /posts' do
     describe 'status 200' do
       before do
-        req = { title: 'ITEM to PUT', body: Faker::Lorem.paragraph }
+        req = { title: 'ITEM to PUT', image: 'https://robohash.org/sitsequiquia.png?size=1280x960', body: Faker::Lorem.paragraph }
         post 'api/posts', req.to_json
         $post = Post.where(title: req[:title]).first
       end
