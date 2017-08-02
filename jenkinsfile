@@ -1,0 +1,12 @@
+#!groovy
+
+node {
+    stage 'Build'
+        // Pega o codigo no GIT
+        git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
+        // Define ambiente Ruby
+    stage 'Unit Tests'
+        sh 'rbenv.sh; bundle install --without development:test; rspec --format progress --format RspecJunitFormatter --out rspec.xml'
+    stage 'Results'
+        junit 'rspec.xml'
+}
