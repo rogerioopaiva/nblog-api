@@ -8,6 +8,7 @@ class PostSerializer
     data = {
       id: @post.id.to_s,
       title: @post.title,
+      image: @post.image,
       body: @post.body,
       created_date: @post.created_date
     }
