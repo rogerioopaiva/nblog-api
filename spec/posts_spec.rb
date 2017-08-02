@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 describe 'nBlog Api' do
   before(:context) do
