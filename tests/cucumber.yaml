@@ -1,0 +1,3 @@
+---
+default: RACK_ENV=qa -p json
+json: --format progress --format json --out=funcional_tests.json

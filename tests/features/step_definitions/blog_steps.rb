@@ -6,7 +6,7 @@ Dado(/^que o usuário informou o título e descrição do artigo$/) do
   @req = {
     title: 'Executando Testes no Capybara com Chrome Headless',
     image: 'http://qaninja.com.br/static/nblog/headless.png',
-    body: Faker::Lorem.paragraph
+    body: get_details
   }
 end
 
@@ -37,7 +37,7 @@ Quando(/^o módulo admin envia um PUT para o serviço posts$/) do
   @req = {
     title: 'Choco, um jeito doce de Instalar coisas no Windows',
     image: 'http://qaninja.com.br/static/nblog/choco.png',
-    body: Faker::Lorem.paragraph
+    body: get_details
   }
   put '/api/posts/' + @post_id.to_s, @req.to_json
 end

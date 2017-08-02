@@ -3,7 +3,7 @@
 Funcionalidade: Publicar artigos
     Sendo o módulo administrativo do portal nBlog
     Posso solicitar requisicões POST, PUT GET e DELETE para o serviço posts
-    Para pubicar, atualizar, buscar e apagar artigos do blog
+    Para publicar, atualizar, buscar e apagar artigos do blog
 
     Cenário: Publicar novo artigo no blog
 
