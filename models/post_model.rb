@@ -13,7 +13,7 @@ class Post
   field :created_date, type: String
 
   validates :title, presence: true
-  validates :image, presence: true
+  validates :image, presence: false
   validates :body, presence: true
   validates :created_date, presence: true
 
