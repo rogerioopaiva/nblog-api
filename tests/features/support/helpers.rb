@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 module Helpers
   def get_details
@@ -38,4 +39,3 @@ module Helpers
     end
   end
 end
-

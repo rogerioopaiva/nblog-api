@@ -5,7 +5,6 @@ Funcionalidade: Remover artigo
     Posso solicitar requisicões DELETE para o serviço posts
     Para publicar novos artigos no meu blog
 
-    @delete
     Cenário: Remover artigo do blog
 
         Dado que o usuário selecinou um artigo no blog

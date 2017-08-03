@@ -33,6 +33,10 @@ Dado(/^que o usuário selecinou um artigo no blog$/) do
   @post_id = headers[:_id]
 end
 
+Dado(/^que o código do artigo é inválido ou incorreto$/) do
+  @post_id = Faker::Lorem.characters(25)
+end
+
 Quando(/^o módulo admin envia um PUT para o serviço posts$/) do
   @req = {
     title: 'Choco, um jeito doce de Instalar coisas no Windows',
