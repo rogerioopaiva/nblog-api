@@ -1,30 +1,45 @@
 #!groovy
-
 node {
-   stage('Preparation') { 
-      git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
-      env.RACK_ENV = 'dev'
-      bootstrap_ruby()
-      bundle()
-   }
-   stage('Build') {
-      env.RACK_ENV = 'dev'
-      unit_tests()
-   }
-   stage('Results') {
-      junit 'rspec.xml'
-   }
+  try {
+    stage('Build') {
+        git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
+        env.RACK_ENV = 'development'
+        ruby 'bundle install'
+        ruby 'rspec --format progress --format RspecJunitFormatter --out rspec.xml'
+        junit 'rspec.xml'
+     }
+     stage('Deploy to QA') {
+       deploy('qa')
+     }
+     stage('Run Funciontal Tests') {
+         ruby 'cucumber'
+         cucumber fileIncludePattern: 'funcional_tests.json', jsonReportDirectory: 'tests'
+     }
+     stage('Deploy to UAT') {
+        echo 'Hello World'
+     }
+     stage('Run Acceptance Tests') {
+          echo 'Hello World'
+     }
+     stage('Deploy to Production') {
+        env.RACK_ENV = 'productionuat'
+        echo 'Hello World'
+     }
+  }
+  catch (err) {
+		currentBuild = 'FAILURE'
+		throw err
+	}
 }
 
-
-def bootstrap_ruby() {
-    sh './rbenv.sh'
+def ruby(String commands) {
+    sh "bash -c 'source ~/.bashrc && rbenv global 2.3.3 && ${commands}'"
 }
 
-def bundle() {
-    sh 'bundle install'
-}
-
-def unit_tests() {
-    sh 'rspec --format progress --format RspecJunitFormatter --out rspec.xml'
+def deploy(String env) {
+  env.RACK_ENV = env
+  sh "rm -rf .git && git init"
+  sh "heroku git:remote -a nblog-api-${env}"
+  sh "git add . && git commit -m 'deploy'"
+  sh "git push heroku master --force"
 }
