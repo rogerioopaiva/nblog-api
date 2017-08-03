@@ -2,7 +2,7 @@
 
 module Helpers
   def get_details
-    Faker::Lorem.paragraph(15)
+    "#{$env} - #{Faker::Lorem.paragraph(5)}"
   end
 
   def create_articles
