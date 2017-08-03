@@ -2,32 +2,32 @@
 node {
   try {
     stage('Build') {
-        git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
-        env.RACK_ENV = 'development'
-        ruby 'bundle install'
-        ruby 'rspec --format progress --format RspecJunitFormatter --out rspec.xml'
-        junit 'rspec.xml'
+      git credentialsId: 'e093579e-dd48-4ec2-a6f5-cd0150ab2eae', url: 'git@github.com:papitoio/nblog-api.git'
+      env.RACK_ENV = 'development'
+      ruby 'bundle install'
+      ruby 'rspec --format progress --format RspecJunitFormatter --out rspec.xml'
+      junit 'rspec.xml'
      }
      stage('Deploy to QA') {
        deploy('qa')
      }
      stage('Run Funciontal Tests') {
-         ruby 'cucumber'
-         cucumber fileIncludePattern: 'funcional_tests.json', jsonReportDirectory: 'tests'
+       ruby 'cd tests && bundle install && cucumber'
+       cucumber fileIncludePattern: 'funcional_tests.json', jsonReportDirectory: 'tests'
      }
      stage('Deploy to UAT') {
-        echo 'Hello World'
+       deploy('uat')
      }
      stage('Run Acceptance Tests') {
-          echo 'Hello World'
+       ruby 'cd tests && bundle install && cucumber -p uat'
      }
      stage('Deploy to Production') {
-        env.RACK_ENV = 'productionuat'
-        echo 'Hello World'
+       deploy_production()
+       ruby 'cd tests && bundle install && cucumber -p production'
      }
   }
   catch (err) {
-		currentBuild = 'FAILURE'
+		currentBuild = 'Deu Ruim :('
 		throw err
 	}
 }
@@ -37,9 +37,15 @@ def ruby(String commands) {
 }
 
 def deploy(String env) {
-  env.RACK_ENV = env
   sh "rm -rf .git && git init"
   sh "heroku git:remote -a nblog-api-${env}"
+  sh "git add . && git commit -m 'deploy'"
+  sh "git push heroku master --force"
+}
+
+def deploy_production() {
+  sh "rm -rf .git && git init"
+  sh "heroku git:remote -a nblog-api"
   sh "git add . && git commit -m 'deploy'"
   sh "git push heroku master --force"
 }
