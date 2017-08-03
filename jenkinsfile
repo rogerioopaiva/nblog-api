@@ -14,6 +14,7 @@ node {
      stage('Run Funciontal Tests') {
        ruby 'cd tests && bundle install && cucumber'
        cucumber fileIncludePattern: 'funcional_tests.json', jsonReportDirectory: 'tests'
+       junit 'tests/results/*.xml'
      }
      stage('Deploy to UAT') {
        deploy('uat')
