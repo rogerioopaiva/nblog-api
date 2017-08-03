@@ -1,6 +1,7 @@
 ---
-default: -p qa -p json
+default: -p qa -p json -p junit
 qa: RACK_ENV=qa
 uat: RACK_ENV=uat --format progress
 production: RACK_ENV=production --format progress
-json: --format progress --format json --out=funcional_tests.json
+json: --format progress --format json --out=results/funcional_tests.json
+junit: --format junit --out results
