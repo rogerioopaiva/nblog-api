@@ -1,9 +1,0 @@
-# Gemfile
-source 'https://rubygems.org'
-
-gem 'cucumber'
-gem 'airborne'
-gem 'mongoid'
-gem 'faker'
-
-
