@@ -7,3 +7,12 @@ development:
             options:
                 user: dev-app
                 password: dev#123
+qa:
+    clients:
+        default:
+            database: nblog-qa
+            hosts:
+                - 'ds149551.mlab.com:49551'
+            options:
+                user: qa-app
+                password: qa#123

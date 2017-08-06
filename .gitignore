@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/ruby,macos
 
+## Custom ##
+unit_tests.xml
+
 ### macOS ###
 *.DS_Store
 .AppleDouble
