@@ -78,7 +78,7 @@ describe 'nBlog Api' do
     describe 'status 404' do
       it 'message error when post not exist' do
         delete 'api/posts/' + Faker::Lorem.characters(25)
-        expect_status(400)
+        expect_status(404)
         expect(json_body).to eq(message: 'Post Not Found')
       end
     end
