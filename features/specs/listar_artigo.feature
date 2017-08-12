@@ -18,4 +18,4 @@ Funcionalidade: Listar artigos
 
         Dado que o usuário selecionou um artigo para visualização
         Quando o módulo admin eviar um GET desse artigo para o serviço Posts
-        Então o código de resposta deve ser "200"
+        Então o código de resposta deve ser "404"

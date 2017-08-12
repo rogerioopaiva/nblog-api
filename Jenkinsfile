@@ -5,7 +5,7 @@ node {
             env.RACK_ENV = 'development'
             ruby('bundle install --with test')
             ruby('rspec --format progress --format RspecJunitFormatter --out results/rspec.xml')
-            junit 'reports/*.xml'
+            junit 'results/rspec.xml'
         }
         stage('Deploy to QA') {
             echo 'deploy on heroku'
@@ -15,7 +15,7 @@ node {
             echo 'test'
             ruby('cucumber')
             cucumber '**/*.json'
-            junit 'reports/*.xml'
+            junit 'results/TEST-*.xml'
         }
         stage('Deploy to UAT') {
             echo 'deploy on heroku'
@@ -32,7 +32,7 @@ node {
     }
     catch (err) {
         currentBuild = 'Falhou o build'
-        junit 'reports/*.xml'
+        junit 'results/*.xml'
         cucumber '**/*.json'
         throw err
     }
