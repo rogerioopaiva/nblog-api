@@ -77,3 +77,14 @@ Então(/^o artigo não deve ser exibido ao solicitar uma busca$/) do
   get '/api/posts/' + @post_id.to_s
   expect_status(404)
 end
+
+
+## Error
+
+Dado(/^que o usuário selecionou um artigo para visualização$/) do
+  @post_id = "0000"
+end
+
+Quando(/^o módulo admin eviar um GET desse artigo para o serviço Posts$/) do
+  get '/api/posts/' + @post_id.to_s
+end
