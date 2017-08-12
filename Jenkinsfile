@@ -4,8 +4,8 @@ node {
             git credentialsId: '270b889b-fbdc-4ff9-978f-48a39f0e296d', url: 'git@github.com:papitoio/nblog-api.git'
             env.RACK_ENV = 'development'
             ruby('bundle install --with test')
-            ruby('rspec --format progress --format RspecJunitFormatter --out rspec.xml')
-            junit 'rspec.xml'
+            ruby('rspec --format progress --format RspecJunitFormatter --out results/rspec.xml')
+            junit 'reports/*.xml'
         }
         stage('Deploy to QA') {
             echo 'deploy on heroku'
@@ -15,6 +15,7 @@ node {
             echo 'test'
             ruby('cucumber')
             cucumber '**/*.json'
+            junit 'reports/*.xml'
         }
         stage('Deploy to UAT') {
             echo 'deploy on heroku'
@@ -31,7 +32,7 @@ node {
     }
     catch (err) {
         currentBuild = 'Falhou o build'
-        junit 'rspec.xml'
+        junit 'reports/*.xml'
         cucumber '**/*.json'
         throw err
     }
