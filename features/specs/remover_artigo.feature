@@ -11,5 +11,5 @@ Funcionalidade: Remover artigo
 
         Dado que o usuário selecionou um artigo no blog
         Quando o módulo admin envia um DELETE para o serviço Posts
-        Então o código de resposta deve ser "201"
+        Então o código de resposta deve ser "200"
             E o artigo não deve ser exibido ao solicitar uma busca
